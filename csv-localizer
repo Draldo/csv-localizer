@@ -193,14 +193,14 @@ def start_localize_android(source_path, all_writes, lang_keys):
           if any([value == "" for value in row_values]):
             [fwrite.write('\n') for idx, fwrite in enumerate(allwrites)]
           else:
-            [fwrite.write('\t<string name="{key}">{lang}</string>\n'.format(key=row_key, lang=row_values[idx]))
+            [fwrite.write('\t<string name="{key}">"{lang}"</string>\n'.format(key=row_key, lang=row_values[idx]))
              for idx, fwrite in enumerate(allwrites)]
         [fwrite.write('</resources>') for fwrite in allwrites]
   [fwrite.close() for fwrite in allwrites]
 
 
 # =========================================================================
-# ++++++++++++++++++++++++++++++ iOS ++++++++++++++++++++++++++++++++++++++
+# +++++++++++++++++++++++++++++ jSON ++++++++++++++++++++++++++++++++++++++
 # =========================================================================
 def start_localize_json(source_path, all_writes, lang_keys):
   allwrites = all_writes
